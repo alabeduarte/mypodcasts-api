@@ -1,10 +1,16 @@
 import request from 'supertest';
 import user from '../../../lib/api/user';
 
-describe('index', () => {
-  describe('GET /api/user/:username/feeds', () => {
+describe('user', () => {
+  describe('GET /:username/feeds', () => {
     it('returns success!', (done) => {
-      request(user).get('/johndow/feeds/').expect(200, [{}], done);
+      request(user).get('/johndoe/feeds/').expect(200, '', done);
+    });
+  });
+
+  describe('GET /:username/latest_episodes', () => {
+    it('returns success!', (done) => {
+      request(user).get('/johndoe/latest_episodes/').expect(200, '', done);
     });
   });
 });
