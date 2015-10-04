@@ -1,0 +1,32 @@
+{
+  "name": "mypodcasts-api",
+  "version": "0.0.1",
+  "description": "API for MyPodcasts apps",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3",
+    "supertest": "^1.1.0"
+  },
+  "scripts": {
+    "start": "node bin/server.js",
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/alabeduarte/mypodcasts-api.git"
+  },
+  "keywords": [
+    "podcast",
+    "api"
+  ],
+  "author": "Alabê Duarte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alabeduarte/mypodcasts-api/issues"
+  },
+  "homepage": "https://github.com/alabeduarte/mypodcasts-api#readme"
+}
