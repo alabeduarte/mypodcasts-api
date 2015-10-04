@@ -16,7 +16,8 @@
   },
   "scripts": {
     "start": "node bin/server.js",
-    "test": "./node_modules/.bin/eslint --parser 'babel-eslint' lib/** test/** && ./node_modules/.bin/mocha --compilers js:babel/register"
+    "pretest": "./node_modules/.bin/eslint --parser 'babel-eslint' lib/** test/**",
+    "test": "./node_modules/.bin/mocha --compilers js:babel/register"
   },
   "repository": {
     "type": "git",
