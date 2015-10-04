@@ -1,7 +1,11 @@
-var express = require('express')
-  , app = express();
+require("babel/register");
 
-app.use('/', require('../lib/index'));
+var express = require('express');
+var index = require('../lib/index');
+
+var app = express();
+
+app.use('/', index);
 
 var server = app.listen(process.env.PORT || 3000, function () {
   var host = server.address().address;
