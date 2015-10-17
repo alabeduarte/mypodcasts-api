@@ -1,7 +1,8 @@
 .PHONY: test
 
 install:
-	./start_docker.sh
+	time ./start_docker.sh
 
 test:
-	docker-compose run web npm test
+	#time docker-compose run web npm test
+	time npm test
