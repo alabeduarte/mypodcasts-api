@@ -1,9 +1,7 @@
 import mongoose from 'mongoose';
 
-const dbURI = `mongodb://${process.env.MONGODB_HOSTS}/mypodcasts-api-test`;
-mongoose.connect(dbURI);
-
 export default mongoose.model('UserFeed', mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   title: String,
   image: mongoose.Schema.Types.Mixed
 }, { versionKey: false }));
