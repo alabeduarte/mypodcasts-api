@@ -23,7 +23,9 @@
     "eol-last": 2,
     "func-names": 2,
     "generator-star-spacing": 2,
-    "new-cap": 2,
+    "new-cap": [2, {
+      "capIsNewExceptions": ["mongoose.Schema"]
+    }],
     "no-class-assign": 2,
     "no-const-assign": 2,
     "no-else-return": 2,

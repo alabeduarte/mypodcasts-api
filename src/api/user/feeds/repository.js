@@ -1,5 +1,7 @@
-export default class FeedsRepository {
+import UserFeed from '../../../models/userFeed';
+
+export default class UserFeedsRepository {
   static fetchBy() {
-    return 'empty';
+    return UserFeed.find({}).stream();
   }
 }
