@@ -1,5 +1,5 @@
 import request from 'supertest';
-import user from '../../../lib/api/user';
+import user from '../../../src/api/user';
 
 describe('user', () => {
   describe('GET /:username/feeds', () => {

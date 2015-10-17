@@ -2,8 +2,8 @@ require("babel/register");
 
 var express = require('express');
 var app = express();
-var index = require('../lib/index');
-var user = require('../lib/api/user');
+var index = require('../src/index');
+var user = require('../src/api/user');
 
 app.use('/', index);
 app.use('/api/user/', user);
