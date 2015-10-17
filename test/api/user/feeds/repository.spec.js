@@ -1,6 +1,3 @@
-import chai from 'chai';
-const expect = chai.expect;
-
 import mongoose from 'mongoose';
 import FeedsRepository from '../../../../src/api/user/feeds/repository';
 
