@@ -20,7 +20,7 @@ describe('GET /:username/feeds', () => {
     const expectedJson = JSON.stringify(
       [
         {
-          id: userFeed.id,
+          id: userFeed._id,
           title: userFeed.title,
           image: {
             url: userFeed.image.url

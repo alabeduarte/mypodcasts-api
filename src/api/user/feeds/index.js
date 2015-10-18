@@ -10,7 +10,7 @@ app.get('/:username/feeds/', (req, res) => {
   UserFeedsRepository.fetchBy(req.params.username).then( (userFeeds) => {
     const representer = userFeeds.map( (userFeed) => {
       return {
-        id: userFeed.id,
+        id: userFeed._id,
         title: userFeed.title,
         image: { url: userFeed.image.url }
       }

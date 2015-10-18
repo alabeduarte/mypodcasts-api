@@ -1,0 +1,12 @@
+[
+  {
+    "rssUrl": "http://feeds.feedwrench.com/RubyRogues.rss",
+    "title": "Ruby Rogues",
+    "image": { "url": "https://s3.amazonaws.com/devchat.tv/ruby-rogues-thumb.jpg" }
+  },
+  {
+    "rssUrl": "http://feeds.feedwrench.com/JavaScriptJabber.rss",
+    "title": "JavaScript Jabber",
+    "image": { "url": "https://s3.amazonaws.com/devchat.tv/javascript_jabber_thumb.jpg" }
+  }
+]
