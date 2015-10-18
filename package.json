@@ -22,7 +22,8 @@
     "supertest": "^1.1.0"
   },
   "scripts": {
-    "start": "node bin/server.js"
+    "start": "node -r dotenv/config bin/server.js",
+    "test": "make test"
   },
   "repository": {
     "type": "git",
