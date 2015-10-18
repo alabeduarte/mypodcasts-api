@@ -33,6 +33,7 @@ test:
 	#time docker-compose run web npm test
 	$(NPM_INSTALL)
 	$(ESLINT)
+	NODE_ENV=test \
 	time $(MOCHA) \
 		$(MOCHA_FLAGS) \
 		$(COMPILERS)

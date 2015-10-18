@@ -4,14 +4,15 @@
   "description": "API for MyPodcasts apps",
   "main": "index.js",
   "dependencies": {
+    "dotenv": "^1.2.0",
     "babel": "^5.8.23",
+    "config": "^1.16.0",
     "express": "^4.13.3",
     "mongoose": "^4.1.11"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",
     "chai": "^3.3.0",
-    "dotenv": "^1.2.0",
     "eslint": "^1.6.0",
     "faker": "^3.0.1",
     "istanbul": "^0.4.0",
@@ -22,7 +23,7 @@
     "supertest": "^1.1.0"
   },
   "scripts": {
-    "start": "node -r dotenv/config bin/server.js",
+    "start": "node bin/server.js",
     "test": "make test"
   },
   "repository": {

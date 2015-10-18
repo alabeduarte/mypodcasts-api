@@ -1,5 +1,7 @@
 require("babel/register");
 
+require('dotenv').config({ silent: true });
+
 var express = require('express');
 var app = express();
 var index = require('../src/index');

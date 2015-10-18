@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import clearDB from 'mocha-mongoose';
 
 import faker from 'faker'
@@ -7,15 +6,15 @@ import User from '../../../../src/models/user';
 import UserFeed from '../../../../src/models/userFeed';
 import UserFeedsRepository from '../../../../src/api/user/feeds/repository';
 
-const dbURI = `mongodb://${process.env.MONGODB_HOSTS}/mypodcasts-api-test`;
+import database from '../../../../config/database';
 
 beforeEach((done) => {
-  clearDB(dbURI)(done);
+  clearDB(database.uri)(done);
 });
 
 beforeEach((done) => {
-  if (mongoose.connection.db) return done();
-  mongoose.connect(dbURI, done);
+  if (database.isAlreadyConnected()) return done();
+  database.connect(done);
 });
 
 describe('UserFeedsRepository', () => {
