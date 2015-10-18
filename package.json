@@ -18,6 +18,7 @@
     "mocha": "^2.3.3",
     "mocha-mongoose": "^1.1.0",
     "mongodb": "^2.0.46",
+    "simple-mock": "^0.4.1",
     "supertest": "^1.1.0"
   },
   "scripts": {

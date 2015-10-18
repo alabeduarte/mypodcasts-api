@@ -1,9 +1,9 @@
 import express from 'express';
+import userFeeds from './feeds';
+
 const app = express();
 
-app.get('/:username/feeds/', (req, res) => {
-  res.send('');
-})
+app.use('/', userFeeds);
 
 app.get('/:username/latest_episodes', (req, res) => {
   res.send('');

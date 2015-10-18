@@ -48,10 +48,7 @@ describe('UserFeedsRepository', () => {
       const promise = UserFeedsRepository.fetchBy(user.username);
 
       promise.then((data) => {
-        assert.deepEqual(
-          [userFeed.toObject()],
-          data
-          );
+        assert.deepEqual([userFeed.toObject()], data);
 
         done();
       }).catch((err) => {
@@ -88,10 +85,21 @@ describe('UserFeedsRepository', () => {
         const promise = UserFeedsRepository.fetchBy(anotherUser.username);
 
         promise.then((data) => {
-          assert.deepEqual(
-            [anotherUserFeed.toObject()],
-            data
-          );
+          assert.deepEqual([anotherUserFeed.toObject()], data);
+
+          done();
+        }).catch((err) => {
+          done(err);
+        });
+      });
+    });
+
+    describe('when username does not exists', () => {
+      it('returns empty array', (done) => {
+        const promise = UserFeedsRepository.fetchBy('DOES_NOT_EXISTS');
+
+        promise.then((data) => {
+          assert.deepEqual([], data);
 
           done();
         }).catch((err) => {
