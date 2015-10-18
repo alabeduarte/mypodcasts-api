@@ -89,4 +89,28 @@ describe('UserFeedsRepository', () => {
       });
     });
   });
+
+  describe('.getEpisodes', () => {
+    let userFeed = new UserFeed({ rssUrl: faker.internet.url() });
+
+    beforeEach((done) => {
+      UserFeed.create(userFeed, (err, created) => {
+        userFeed = created;
+
+        done();
+      });
+    });
+
+    it('returns a feed that match with feedId', (done) => {
+      const promise = UserFeedsRepository.getEpisodes(userFeed.id);
+
+      promise.then((data) => {
+        assert.deepEqual(userFeed.toObject(), data.toObject());
+
+        done();
+      }).catch((err) => {
+        done(err);
+      });
+    });
+  });
 });

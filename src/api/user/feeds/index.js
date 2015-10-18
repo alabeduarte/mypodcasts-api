@@ -1,7 +1,10 @@
 import express from 'express';
 import UserFeedsRepository from './repository';
+import userFeedsEpisodes from './episodes';
 
 const app = express();
+
+app.use('/', userFeedsEpisodes);
 
 app.get('/:username/feeds/', (req, res) => {
   UserFeedsRepository.fetchBy(req.params.username).then( (userFeeds) => {
