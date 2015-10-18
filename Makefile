@@ -11,15 +11,18 @@ install:
 ESLINT := $(NODE_PATH)/eslint --parser 'babel-eslint' src/** test/**
 COMPILERS   := --compilers js:babel/register
 ifdef CI
-	NPM_INSTALL := npm install
+NPM_INSTALL    := npm install
+MOCHA_REPORTER := dot
+else
+MOCHA_REPORTER := spec
 endif
 ifdef COVERAGE
-	MOCHA := $(NODE_PATH)/istanbul cover $(NODE_PATH)/_mocha --
+MOCHA := $(NODE_PATH)/istanbul cover $(NODE_PATH)/_mocha --
 else
-	MOCHA := $(NODE_PATH)/mocha
+MOCHA := $(NODE_PATH)/mocha
 endif
 MOCHA_FLAGS := --recursive \
-								--reporter spec \
+								--reporter $(MOCHA_REPORTER) \
 								-r dotenv/config \
 								-r test/helper
 ifdef WATCH
