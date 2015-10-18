@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import clearDB from 'mocha-mongoose';
 
+import faker from 'faker'
+
 import User from '../../../../src/models/user';
 import UserFeed from '../../../../src/models/userFeed';
 import UserFeedsRepository from '../../../../src/api/user/feeds/repository';
@@ -19,14 +21,14 @@ beforeEach((done) => {
 describe('UserFeedsRepository', () => {
   describe('.fetchBy', () => {
     let user = new User({
-      username: 'asterix'
+      username: faker.internet.userName()
     });
 
     let userFeed = new UserFeed({
       userId: user.id,
-      title: 'Some podcast',
+      title: faker.lorem.sentence(),
       image: {
-        url: 'http://image.com/poscast.jpg'
+        url: faker.image.imageUrl()
       }
     });
 
@@ -59,14 +61,14 @@ describe('UserFeedsRepository', () => {
 
     describe('when there is another feed belonged to another user', () => {
       let anotherUser = new User({
-        username: 'obelix'
+        username: faker.internet.userName()
       });
 
       let anotherUserFeed = new UserFeed({
         userId: anotherUser.id,
-        title: 'Another podcast',
+        title: faker.lorem.sentence(),
         image: {
-          url: 'http://image.com/anotherposcast.jpg'
+          url: faker.image.imageUrl()
         }
       });
 
