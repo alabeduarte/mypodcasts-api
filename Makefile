@@ -14,7 +14,8 @@ ifdef CI
 NPM_INSTALL    := npm install
 MOCHA_REPORTER := dot
 else
-MOCHA_REPORTER := spec
+MOCHA_REPORTER  := spec
+REQUIRE_DOT_ENV := --require dotenv/config
 endif
 ifdef COVERAGE
 MOCHA := $(NODE_PATH)/istanbul cover $(NODE_PATH)/_mocha --
@@ -23,8 +24,8 @@ MOCHA := $(NODE_PATH)/mocha
 endif
 MOCHA_FLAGS := --recursive \
 								--reporter $(MOCHA_REPORTER) \
-								-r dotenv/config \
-								-r test/helper
+								$(REQUIRE_DOT_ENV) \
+								--require test/helper
 ifdef WATCH
 	MOCHA_FLAGS += --watch
 endif
