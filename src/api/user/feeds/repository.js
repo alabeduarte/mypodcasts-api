@@ -2,6 +2,8 @@ import UserFeed from '../../../models/userFeed';
 import User from '../../../models/user';
 import mongoose from 'mongoose';
 
+import EpisodesRepository from './episodes/repository';
+
 const ObjectId = mongoose.Types.ObjectId;
 
 export default class UserFeedsRepository {
@@ -17,12 +19,14 @@ export default class UserFeedsRepository {
 
   static getEpisodes (feedId) {
     return UserFeed.findOne({ _id: new ObjectId(feedId) }).then( (userFeed) => {
-      return {
-        id: userFeed.id,
-        title: userFeed.title,
-        image: userFeed.image,
-        episodes: []
-      };
+      return EpisodesRepository.getEpisodes(userFeed).then( (episodes) => {
+        return {
+          id: userFeed.id,
+          title: userFeed.title,
+          image: userFeed.image,
+          episodes: episodes
+        };
+      });
     });
   }
 }

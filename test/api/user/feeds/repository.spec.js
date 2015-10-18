@@ -1,10 +1,12 @@
 import clearDB from 'mocha-mongoose';
 
+import simple from 'simple-mock';
 import faker from 'faker'
 
 import User from '../../../../src/models/user';
 import UserFeed from '../../../../src/models/userFeed';
 import UserFeedsRepository from '../../../../src/api/user/feeds/repository';
+import EpisodesRepository from '../../../../src/api/user/feeds/episodes/repository';
 
 import database from '../../../../config/database';
 
@@ -91,7 +93,7 @@ describe('UserFeedsRepository', () => {
   });
 
   describe('.getEpisodes', () => {
-    const episodes = [];
+    const episodes = [{}];
     let userFeed = new UserFeed(
       {
         id: faker.random.uuid(),
@@ -102,6 +104,8 @@ describe('UserFeedsRepository', () => {
     );
 
     beforeEach((done) => {
+      simple.mock(EpisodesRepository, 'getEpisodes').resolveWith(episodes);
+
       UserFeed.create(userFeed, (err, created) => {
         userFeed = created;
 
