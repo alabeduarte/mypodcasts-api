@@ -19,17 +19,8 @@ beforeEach((done) => {
 
 describe('UserFeedsRepository', () => {
   describe('.fetchBy', () => {
-    let user = new User({
-      username: faker.internet.userName()
-    });
-
-    let userFeed = new UserFeed({
-      userId: user.id,
-      title: faker.lorem.sentence(),
-      image: {
-        url: faker.image.imageUrl()
-      }
-    });
+    let user = new User({ username: faker.internet.userName() });
+    let userFeed = new UserFeed({ userId: user.id });
 
     beforeEach((done) => {
       User.create(user, (err, created) => {
@@ -56,17 +47,8 @@ describe('UserFeedsRepository', () => {
     });
 
     describe('when there is another feed belonged to another user', () => {
-      let anotherUser = new User({
-        username: faker.internet.userName()
-      });
-
-      let anotherUserFeed = new UserFeed({
-        userId: anotherUser.id,
-        title: faker.lorem.sentence(),
-        image: {
-          url: faker.image.imageUrl()
-        }
-      });
+      let anotherUser = new User({ username: faker.internet.userName() });
+      let anotherUserFeed = new UserFeed({ userId: anotherUser.id });
 
       beforeEach((done) => {
         User.create(anotherUser, (err, created) => {
