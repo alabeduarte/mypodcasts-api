@@ -16,6 +16,13 @@ export default class UserFeedsRepository {
   }
 
   static getEpisodes (feedId) {
-    return UserFeed.findOne({ _id: new ObjectId(feedId) });
+    return UserFeed.findOne({ _id: new ObjectId(feedId) }).then( (userFeed) => {
+      return {
+        id: userFeed.id,
+        title: userFeed.title,
+        image: userFeed.image,
+        episodes: []
+      };
+    });
   }
 }

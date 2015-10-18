@@ -14,14 +14,7 @@ app.get('/:username/feeds/:id/episodes', (req, res) => {
       id: userFeed.id,
       title: userFeed.title,
       image: userFeed.image,
-      episodes: userFeed.episodes().map( (episode) => {
-        return {
-          title: episode.title,
-          publishedDate: episode.publishedDate,
-          description: episode.description,
-          audio: episode.audio
-        };
-      })
+      episodes: userFeed.episodes
     };
 
     res.send(representer);

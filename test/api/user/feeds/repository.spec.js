@@ -91,7 +91,15 @@ describe('UserFeedsRepository', () => {
   });
 
   describe('.getEpisodes', () => {
-    let userFeed = new UserFeed({ rssUrl: faker.internet.url() });
+    const episodes = [];
+    let userFeed = new UserFeed(
+      {
+        id: faker.random.uuid(),
+        rssUrl: faker.internet.url(),
+        title: faker.lorem.sentence(),
+        image: faker.image.imageUrl()
+      }
+    );
 
     beforeEach((done) => {
       UserFeed.create(userFeed, (err, created) => {
@@ -105,7 +113,14 @@ describe('UserFeedsRepository', () => {
       const promise = UserFeedsRepository.getEpisodes(userFeed.id);
 
       promise.then((data) => {
-        assert.deepEqual(userFeed.toObject(), data.toObject());
+        assert.deepEqual(
+          {
+            id: userFeed.id,
+            title: userFeed.title,
+            image: userFeed.image,
+            episodes: episodes
+          }, data
+        );
 
         done();
       }).catch((err) => {
