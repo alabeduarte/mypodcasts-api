@@ -1,19 +1,39 @@
+NODE_PATH := ./node_modules/.bin
 SHELL     := /usr/bin/env bash
 CPUS      := $(shell node -p "require('os').cpus().length" 2> /dev/null || echo 1)
 MAKEFLAGS += --jobs $(CPUS)
 
-.PHONY: test
-
+.PHONY: install
 install:
 	time ./start_docker.sh
 
+.PHONY: test
+ESLINT := $(NODE_PATH)/eslint --parser 'babel-eslint' src/** test/**
+COMPILERS   := --compilers js:babel/register
+ifdef CI
+	NPM_INSTALL := npm install
+endif
+ifdef COVERAGE
+	MOCHA := $(NODE_PATH)/istanbul cover $(NODE_PATH)/_mocha --
+else
+	MOCHA := $(NODE_PATH)/mocha
+endif
+MOCHA_FLAGS := --recursive \
+								--reporter spec \
+								-r dotenv/config \
+								-r test/helper
+ifdef WATCH
+	MOCHA_FLAGS += --watch
+endif
 test:
 	#time docker-compose run web npm test
-	time npm install
-	./node_modules/.bin/eslint --parser 'babel-eslint' src/** test/**
-	time ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- \
-		--recursive \
-		--reporter spec \
-		--compilers js:babel/register \
-		-r dotenv/config \
-		-r test/helper
+	$(NPM_INSTALL)
+	$(ESLINT)
+	time $(MOCHA) \
+		$(MOCHA_FLAGS) \
+		$(COMPILERS)
+
+#:Run all tests and re-run them upon file changes
+.PHONY: test.watch
+test.watch:
+	WATCH=true $(MAKE) test
