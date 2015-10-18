@@ -42,7 +42,7 @@ describe('UserFeedsRepository', () => {
       });
     });
 
-    it('fetch all feeds by username', (done) => {
+    it('returns all feeds that match with username', (done) => {
       const promise = UserFeedsRepository.fetchBy(user.username);
 
       promise.then((data) => {
@@ -82,7 +82,7 @@ describe('UserFeedsRepository', () => {
         });
       });
 
-      it('fetch all feeds by username', (done) => {
+      it('returns all feeds that match with username', (done) => {
         const promise = UserFeedsRepository.fetchBy(anotherUser.username);
 
         promise.then((data) => {
