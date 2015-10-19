@@ -23,11 +23,11 @@ else
 MOCHA := $(NODE_PATH)/mocha
 endif
 MOCHA_FLAGS := --recursive \
-								--reporter $(MOCHA_REPORTER) \
-								$(REQUIRE_DOT_ENV) \
-								--require test/helper
+	--reporter $(MOCHA_REPORTER) \
+	$(REQUIRE_DOT_ENV) \
+	--require test/helper
 ifdef WATCH
-	MOCHA_FLAGS += --watch
+MOCHA_FLAGS += --watch
 endif
 test:
 	#time docker-compose run web npm test
