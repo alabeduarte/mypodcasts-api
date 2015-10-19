@@ -113,6 +113,10 @@ describe('UserFeedsRepository', () => {
       });
     });
 
+    afterEach( () => {
+      simple.restore();
+    });
+
     it('returns a feed that match with feedId', (done) => {
       const promise = UserFeedsRepository.getEpisodes(userFeed.id);
 
