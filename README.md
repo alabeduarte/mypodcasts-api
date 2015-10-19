@@ -11,26 +11,26 @@ API for [mypodcasts-android](https://github.com/alabeduarte/mypodcasts-android)
     * [Getting started guide](https://www.docker.com/toolbox)
     * If you are cool and use brew cask:
 
-    ```
-      $ brew cask install dockertoolbox
+    ```bash
+    $ brew cask install dockertoolbox
     ```
 
 ## Install and run all containers
 
 ```bash
-  $ make
+$ make
 ```
 
 ## Run
 
 ```bash
-  # Available at http://<docker_ip>:3000
-  # or you can use your own node environment to do that:
-  $ npm start
+# Available at http://<docker_ip>:3000
+# or you can use your own node environment to do that:
+$ npm start
 ```
 
 ## Tests
 
 ```bash
-  $ make test
+$ make test
 ```
