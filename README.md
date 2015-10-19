@@ -17,18 +17,20 @@ API for [mypodcasts-android](https://github.com/alabeduarte/mypodcasts-android)
 
 ## Install and run all containers
 
-```
+```bash
   $ make
 ```
 
 ## Run
 
-```
+```bash
   # Available at http://<docker_ip>:3000
+  # or you can use your own node environment to do that:
+  $ npm start
 ```
 
 ## Tests
 
-```
+```bash
   $ make test
 ```
