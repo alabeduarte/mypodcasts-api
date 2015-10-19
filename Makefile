@@ -34,7 +34,7 @@ test:
 	$(NPM_INSTALL)
 	$(ESLINT)
 	NODE_ENV=test \
-	time $(MOCHA) \
+	NODE_PATH=. time $(MOCHA) \
 		$(MOCHA_FLAGS) \
 		$(COMPILERS)
 

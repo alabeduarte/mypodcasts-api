@@ -2,8 +2,8 @@ import request from 'supertest';
 import simple from 'simple-mock';
 import faker from 'faker';
 
-import index from '../../../../../src/api/user/feeds/episodes';
-import repository from '../../../../../src/api/user/feeds/repository';
+import index from 'src/api/user/feeds/episodes';
+import repository from 'src/api/user/feeds/repository';
 
 describe('GET /:username/feeds/:id/episodes', () => {
   const username = faker.internet.userName();

@@ -2,10 +2,10 @@ import request from 'supertest';
 import simple from 'simple-mock';
 import faker from 'faker';
 
-import index from '../../../../src/api/user/feeds';
-import repository from '../../../../src/api/user/feeds/repository';
+import index from 'src/api/user/feeds';
+import repository from 'src/api/user/feeds/repository';
 
-import UserFeed from '../../../../src/models/userFeed';
+import UserFeed from 'src/models/userFeed';
 
 describe('GET /:username/feeds', () => {
   describe('when there are feeds', () => {

@@ -1,5 +1,5 @@
 import feedparser from 'feedparser-promised';
-import EpisodesRepository from '../../../../../src/api/user/feeds/episodes/repository';
+import EpisodesRepository from 'src/api/user/feeds/episodes/repository';
 
 import simple from 'simple-mock';
 import faker from 'faker';

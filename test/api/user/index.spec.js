@@ -1,6 +1,6 @@
 import request from 'supertest';
 
-import user from '../../../src/api/user';
+import user from 'src/api/user';
 
 describe('GET /:username/latest_episodes', () => {
   it('returns success!', (done) => {

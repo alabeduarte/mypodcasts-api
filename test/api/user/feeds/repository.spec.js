@@ -3,12 +3,12 @@ import clearDB from 'mocha-mongoose';
 import simple from 'simple-mock';
 import faker from 'faker'
 
-import User from '../../../../src/models/user';
-import UserFeed from '../../../../src/models/userFeed';
-import UserFeedsRepository from '../../../../src/api/user/feeds/repository';
-import EpisodesRepository from '../../../../src/api/user/feeds/episodes/repository';
+import User from 'src/models/user';
+import UserFeed from 'src/models/userFeed';
+import UserFeedsRepository from 'src/api/user/feeds/repository';
+import EpisodesRepository from 'src/api/user/feeds/episodes/repository';
 
-import database from '../../../../config/database';
+import database from 'config/database';
 
 beforeEach((done) => {
   clearDB(database.uri)(done);
