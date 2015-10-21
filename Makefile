@@ -7,6 +7,10 @@ MAKEFLAGS += --jobs $(CPUS)
 install:
 	time ./start_docker.sh
 
+.PHONY: run
+run:
+	npm start
+
 .PHONY: test
 ESLINT := $(NODE_PATH)/eslint --parser 'babel-eslint' src/** test/**
 COMPILERS   := --compilers js:babel/register
