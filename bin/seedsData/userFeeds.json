@@ -8,5 +8,15 @@
     "rssUrl": "http://feeds.feedwrench.com/JavaScriptJabber.rss",
     "title": "JavaScript Jabber",
     "image": { "url": "https://s3.amazonaws.com/devchat.tv/javascript_jabber_thumb.jpg" }
+  },
+  {
+    "rssUrl": "http://feeds.feedwrench.com/JavaScriptJabber.rss",
+    "title": "Nerdcast",
+    "image": { "url": "http://jovemnerd.ig.com.br/wp-content/themes/jovemnerd_v2b/images/NC_FEED.jpg" }
+  },
+  {
+    "rssUrl": "http://tecnologicamentearretado.com.br/podcast.xml",
+    "title": "Tecnologicamente Arretado",
+    "image": { "url": "http://tecnologicamentearretado.com.br/images/logo_itunes.png" }
   }
 ]
