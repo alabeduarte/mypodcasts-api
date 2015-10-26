@@ -12,6 +12,7 @@ describe('EpisodesRepository', () => {
         title: faker.lorem.sentence(),
         pubdate: faker.date.recent(),
         description: faker.lorem.sentence(),
+        'itunes:duration': { '#': '01:01:07' },
         enclosures: [{ url: faker.internet.url() }]
       };
 
@@ -19,6 +20,7 @@ describe('EpisodesRepository', () => {
         title: rssFeed.title,
         publishedDate: rssFeed.pubdate,
         description: rssFeed.description,
+        duration: rssFeed['itunes:duration']['#'],
         audio: rssFeed.enclosures[0]
       }];
 
