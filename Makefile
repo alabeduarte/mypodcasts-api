@@ -12,7 +12,10 @@ run:
 	docker-compose build app
 
 .PHONY: test
+ESLINT := $(NODE_PATH)/eslint --parser 'babel-eslint' src/** test/**
+COMPILERS   := --compilers js:babel/register
 ifdef CI
+NPM_INSTALL    := npm install
 MOCHA_REPORTER := dot
 else
 RUNNER := docker-compose run app
@@ -24,13 +27,12 @@ MOCHA := $(NODE_PATH)/istanbul cover $(NODE_PATH)/_mocha --
 else
 MOCHA := $(NODE_PATH)/mocha
 endif
-ESLINT := $(NODE_PATH)/eslint --parser 'babel-eslint' src/** test/**
-COMPILERS   := --compilers js:babel/register
 MOCHA_FLAGS := --recursive \
 	--reporter $(MOCHA_REPORTER) \
 	$(REQUIRE_DOT_ENV) \
 	--require test/helper
 test:
+	$(NPM_INSTALL)
 	$(RUNNER) $(ESLINT)
 	NODE_ENV=test \
 	NODE_PATH=. $(MOCHA) \
