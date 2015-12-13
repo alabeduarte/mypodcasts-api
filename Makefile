@@ -13,28 +13,14 @@ run:
 
 .PHONY: test
 ESLINT := $(NODE_PATH)/eslint --parser 'babel-eslint' src/** test/**
-COMPILERS   := --compilers js:babel/register
-ifdef CI
-NPM_INSTALL    := npm install
-MOCHA_REPORTER := dot
-else
-RUNNER := docker-compose run app
-MOCHA_REPORTER  := spec
-REQUIRE_DOT_ENV := --require dotenv/config
-endif
-ifdef COVERAGE
-MOCHA := $(NODE_PATH)/istanbul cover $(NODE_PATH)/_mocha --
-else
-MOCHA := $(NODE_PATH)/mocha
-endif
 MOCHA_FLAGS := --recursive \
-	--reporter $(MOCHA_REPORTER) \
-	$(REQUIRE_DOT_ENV) \
+	--reporter spec \
+	--require dotenv/config \
 	--require test/helper
+COMPILERS   := --compilers js:babel/register
 test:
-	$(NPM_INSTALL)
-	$(RUNNER) $(ESLINT)
-	NODE_ENV=test \
-	NODE_PATH=. $(MOCHA) \
+	docker-compose run app $(ESLINT)
+	docker-compose run -e NODE_ENV=test -e NODE_PATH=. app \
+	$(NODE_PATH)/mocha \
 		$(MOCHA_FLAGS) \
 		$(COMPILERS)
