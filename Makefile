@@ -17,6 +17,7 @@ MOCHA_REPORTER := dot
 else
 RUNNER := docker-compose run app
 MOCHA_REPORTER  := spec
+REQUIRE_DOT_ENV := --require dotenv/config
 endif
 ifdef COVERAGE
 MOCHA := $(NODE_PATH)/istanbul cover $(NODE_PATH)/_mocha --
@@ -25,7 +26,6 @@ MOCHA := $(NODE_PATH)/mocha
 endif
 ESLINT := $(NODE_PATH)/eslint --parser 'babel-eslint' src/** test/**
 COMPILERS   := --compilers js:babel/register
-REQUIRE_DOT_ENV := --require dotenv/config
 MOCHA_FLAGS := --recursive \
 	--reporter $(MOCHA_REPORTER) \
 	$(REQUIRE_DOT_ENV) \
