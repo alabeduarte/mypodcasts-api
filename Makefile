@@ -5,7 +5,7 @@ MAKEFLAGS += --jobs $(CPUS)
 
 .PHONY: install
 install:
-	time ./start_docker.sh
+	./start_docker.sh
 
 .PHONY: run
 run:
@@ -33,6 +33,6 @@ MOCHA_FLAGS := --recursive \
 test:
 	$(RUNNER) $(ESLINT)
 	NODE_ENV=test \
-	NODE_PATH=. time $(MOCHA) \
+	NODE_PATH=. $(MOCHA) \
 		$(MOCHA_FLAGS) \
 		$(COMPILERS)
