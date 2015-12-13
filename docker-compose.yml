@@ -1,5 +1,8 @@
-web:
+app:
   build: .
+  command: npm start
+  volumes:
+    - .:/app
   ports:
     - "3000:3000"
   links:

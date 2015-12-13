@@ -2,10 +2,12 @@ FROM node:4.1.2
 
 RUN mkdir /app
 
-WORKDIR /app
+WORKDIR /tmp
+COPY package.json package.json
+COPY node_modules node_modules
+RUN npm install
+
 ADD . /app
-RUN cd app; npm install
+WORKDIR /app
 
 EXPOSE 3000
-
-CMD ["npm", "start"]

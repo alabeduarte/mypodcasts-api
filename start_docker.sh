@@ -21,7 +21,8 @@ eval "$(docker-machine env $MACHINE_NAME)"
 
 if [[ ! -z $DOCKER_HOST ]]; then
   log_action "Initializing docker ..."
-  docker-compose -f ./docker-compose.yml up -d
+  docker-compose build
+  docker-compose up -d
 fi
 
 docker ps
