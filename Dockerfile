@@ -1,4 +1,4 @@
-FROM node:4.1.2
+FROM node:5.3.0
 
 RUN mkdir /app
 
@@ -7,7 +7,9 @@ COPY package.json package.json
 COPY node_modules node_modules
 RUN npm install
 
-ADD . /app
 WORKDIR /app
+ADD . /app
 
 EXPOSE 3000
+
+CMD ["npm", "start"]
