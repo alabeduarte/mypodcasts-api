@@ -17,7 +17,7 @@ MOCHA_FLAGS := --recursive \
 	--reporter spec \
 	--require dotenv/config \
 	--require test/helper
-COMPILERS   := --compilers js:babel/register
+COMPILERS := --compilers js:babel/register
 test:
 	docker-compose run app $(ESLINT)
 	docker-compose run -e NODE_ENV=test -e NODE_PATH=. app \
