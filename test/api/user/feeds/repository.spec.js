@@ -43,7 +43,7 @@ describe('UserFeedsRepository', () => {
         assert.deepEqual([userFeed.toObject()], data);
 
         done();
-      }).catch((err) => {
+      }).then(null, (err) => {
         done(err);
       });
     });
@@ -71,7 +71,7 @@ describe('UserFeedsRepository', () => {
           assert.deepEqual([anotherUserFeed.toObject()], data);
 
           done();
-        }).catch((err) => {
+        }).then(null, (err) => {
           done(err);
         });
       });
@@ -85,7 +85,7 @@ describe('UserFeedsRepository', () => {
           assert.deepEqual([], data);
 
           done();
-        }).catch((err) => {
+        }).then(null, (err) => {
           done(err);
         });
       });
@@ -131,7 +131,7 @@ describe('UserFeedsRepository', () => {
         );
 
         done();
-      }).catch((err) => {
+      }).then(null, (err) => {
         done(err);
       });
     });
