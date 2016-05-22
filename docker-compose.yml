@@ -3,6 +3,7 @@ app:
   command: npm start
   volumes:
     - .:/app
+    - /app/node_modules
   ports:
     - "3000:3000"
   links:
@@ -14,4 +15,4 @@ mongodb:
     - "27017:27017"
     - "28017:28017"
   environment:
-    AUTH: no
+    AUTH: 'no'
