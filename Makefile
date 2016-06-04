@@ -1,4 +1,4 @@
-.PHONY: install run test open
+.PHONY: install run test open smoke
 
 NODE_PATH := ./node_modules/.bin
 SHELL     := /usr/bin/env bash
@@ -27,3 +27,6 @@ test:
 DOCKER_IP := $(shell docker-machine ip mypodcasts-api)
 open:
 	open "http://$(DOCKER_IP):3000"
+
+smoke:
+	docker-compose run app $(NODE_PATH)/shisha

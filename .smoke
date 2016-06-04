@@ -1,0 +1,7 @@
+https://mypodcasts-api-staging.herokuapp.com 200
+https://mypodcasts-api-staging.herokuapp.com/api/user/johndoe/latest_episodes 200
+https://mypodcasts-api-staging.herokuapp.com/api/user/johndoe/feeds 200
+https://mypodcasts-api-staging.herokuapp.com/api/user/johndoe/feeds/562d79fe1d6cc906001b957c/episodes 200
+https://mypodcasts-api-staging.herokuapp.com/api/user/johndoe/feeds/562d79fe1d6cc906001b957d/episodes 200
+https://mypodcasts-api-staging.herokuapp.com/api/user/johndoe/feeds/562d79fe1d6cc906001b957e/episodes 200
+https://mypodcasts-api-staging.herokuapp.com/api/user/johndoe/feeds/562d79fe1d6cc906001b957f/episodes 200
