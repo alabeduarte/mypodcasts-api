@@ -6,7 +6,20 @@ database.connect();
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send({ success: true });
+  res.send({
+    latestEpisodes: {
+      method: 'GET',
+      uri: '/api/user/{username}/latest_episodes'
+    },
+    feeds: {
+      method: 'GET',
+      uri: '/api/user/{username}/feeds'
+    },
+    episodes: {
+      method: 'GET',
+      uri: '/api/user/{username}/feeds/{feed_id}/episodes'
+    }
+  });
 });
 
 export default app;
