@@ -1,8 +1,10 @@
 {
   "name": "mypodcasts-api",
-  "version": "0.0.2",
-  "description": "API for MyPodcasts apps",
-  "main": "index.js",
+  "description": "API for MyPodcasts consumers.",
+  "version": "0.0.3",
+  "engines": {
+    "node": "6.2.0"
+  },
   "dependencies": {
     "babel": "^5.8.34",
     "config": "^1.17.1",
