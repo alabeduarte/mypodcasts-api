@@ -93,7 +93,11 @@ describe('UserFeedsRepository', () => {
   });
 
   describe('.getEpisodes', () => {
-    const episodes = [{}];
+    const episodes = [
+      { title: 'foo' },
+      { title: 'bar' }
+    ];
+
     let userFeed = new UserFeed(
       {
         id: faker.random.uuid(),
@@ -126,7 +130,24 @@ describe('UserFeedsRepository', () => {
             id: userFeed.id,
             title: userFeed.title,
             image: userFeed.image,
-            episodes: episodes
+            episodes: [
+              {
+                title: 'foo',
+                podcast: {
+                  id: userFeed.id,
+                  title: userFeed.title,
+                  image: userFeed.image
+                }
+              },
+              {
+                title: 'bar',
+                podcast: {
+                  id: userFeed.id,
+                  title: userFeed.title,
+                  image: userFeed.image
+                }
+              }
+            ]
           }, data
         );
 

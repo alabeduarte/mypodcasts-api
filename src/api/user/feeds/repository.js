@@ -24,8 +24,17 @@ export default class UserFeedsRepository {
           id: userFeed.id,
           title: userFeed.title,
           image: userFeed.image,
-          episodes: episodes
+          episodes: episodes.map( (episode) => {
+            return Object.assign(episode, {
+              podcast: {
+                id: userFeed.id,
+                title: userFeed.title,
+                image: userFeed.image
+              }
+            });
+          })
         };
+
       });
     });
   }
