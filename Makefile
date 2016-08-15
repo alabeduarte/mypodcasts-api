@@ -6,7 +6,9 @@ CPUS      := $(shell node -p "require('os').cpus().length" 2> /dev/null || echo 
 MAKEFLAGS += --jobs $(CPUS)
 
 install:
-	./start_docker.sh
+	docker-compose build
+	docker-compose up -d
+	./dot_env_setup.sh
 
 run:
 	docker-compose build app
@@ -24,9 +26,8 @@ test:
 		$(MOCHA_FLAGS) \
 		$(COMPILERS)
 
-DOCKER_IP := $(shell docker-machine ip mypodcasts-api)
 open:
-	open "http://$(DOCKER_IP):3000"
+	open "http://localhost:3000"
 
 smoke:
 	docker-compose run app $(NODE_PATH)/shisha
